@@ -10,8 +10,9 @@ const chatTree = {
     message: "안녕하세요! HR·노무 전문가 챗봇입니다.\n아래에서 궁금하신 항목을 선택해주세요.",
     options: {
       "severance_pay": { text: "퇴직금 안내" },
-      "maternity_protection": { text: "모성보호 제도" }, // 2번 메뉴
-      "joint_marketing_main": { text: "공동마케팅 안내" }
+      "maternity_protection": { text: "모성보호 제도" },
+      "joint_marketing_main": { text: "공동마케팅 안내" },
+      "promotion_criteria": { text: "승진 기준 안내" } // 새로 추가된 메뉴
     }
   },
   'severance_pay': {
@@ -27,8 +28,6 @@ const chatTree = {
   'severance_teacher': {
     message: "✅ 선생님 퇴직금 안내\n퇴직금은 '평균임금'을 기준으로 산정하여 지급됩니다.\n\n- 평균임금이란? 산정 사유가 발생한 날 이전 3개월 동안 선생님에게 지급된 임금 총액을 그 기간의 총 일수로 나눈 금액입니다. (수당은 성질에 따라 산입여부가 달라짐)"
   },
-  
-  // ▼ 2. 모성보호 제도 (직접 작성해주신 최신 내용으로 수정 완료) ▼
   'maternity_protection': {
     message: "✅ 모성보호 제도 공통 안내\n신청을 위한 서류는 기획·법무팀에 요청해주시고, 제도 사용 전 반드시 기획·법무팀과 사전 협의가 필요합니다.\n\n아래에서 궁금하신 제도를 선택해주세요.",
     options: {
@@ -54,7 +53,6 @@ const chatTree = {
   'maternity_yukgahujik': {
     message: "✅ 육아휴직\n임신 중인 여성 근로자이거나, 만 8세 이하 또는 초등학교 2학년 이하의 자녀가 있는 근로자가 1년의 육아휴직을 사용하고, 정부가 급여를 지원하는 제도입니다.\n\n- 신청방법: 그룹웨어-휴가신청-항목 '육아휴직'으로 휴직 신청"
   },
-
   'joint_marketing_main': {
     message: "공동마케팅에 대해 무엇이 궁금하신가요?",
     options: {
@@ -71,6 +69,33 @@ const chatTree = {
   },
   'joint_marketing_mid_hire': {
     message: "✅ 중도입사자 기준\n캠퍼스 발령 월을 기준으로 참여 횟수를 산정합니다.\n\n예시: 3월 입사자는 1분기부터 참여하므로 총 4회, 4월 입사자는 2분기부터 참여하므로 총 3회입니다."
+  },
+
+  // ▼ 승진 기준 (새로운 시나리오 적용) ▼
+  'promotion_criteria': {
+    message: "✅ 승진 기준 안내\n궁금하신 직급을 선택해주세요.",
+    options: {
+        "promotion_c2": { text: "C2" },
+        "promotion_m1": { text: "M1" },
+        "promotion_m2": { text: "M2" },
+        "promotion_m3": { text: "M3" },
+        "promotion_m4": { text: "M4" }
+    }
+  },
+  'promotion_c2': {
+    message: "✅ C2 승진 기준\nC1으로 입사 후 1년을 초과하여 근무한 경우 자동승진 처리됩니다."
+  },
+  'promotion_m1': {
+    message: "✅ M1 승진 기준\n입사 후 30개월이 경과하면 M1 정규승진 후보가 됩니다."
+  },
+  'promotion_m2': {
+    message: "✅ M2 승진 기준\nM1 직급에서 만 4년을 초과하여 근무한 경우, M2 정규승진 후보가 됩니다."
+  },
+  'promotion_m3': {
+    message: "✅ M3 승진 기준\nM2 직급에서 만 5년을 초과하여 근무한 경우, M3 정규승진 후보가 됩니다."
+  },
+  'promotion_m4': {
+    message: "✅ M4 승진 기준\nM3 직급에서 만 5년을 초과하여 근무한 경우, M4 정규승진 후보가 됩니다."
   }
 };
 
