@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>앱 아이콘 미리보기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f3f4f6;
+        }
+        .icon-container {
+            width: 512px;
+            height: 512px;
+            background: linear-gradient(170deg, #4a5568 0%, #2d3748 100%);
+            border-radius: 22.5%;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 1. 전면부의 큰 동굴 입구 프레임 */
+        .cave-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+        }
+        .cave-frame svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 2. 사람과 등불 */
+        .character {
+            position: absolute;
+            bottom: 40px;
+            width: 120px;
+            height: 200px;
+            z-index: 15;
+        }
+        .character-head {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 45px;
+            background: #e2e8f0;
+            border-radius: 50%;
+        }
+        .character-helmet {
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 30px;
+            background: #fde047;
+            border-radius: 25px 25px 5px 5px;
+        }
+        .character-torso {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 90px;
+            background: #4a5568;
+            border-radius: 15px;
+        }
+        .character-arm {
+            position: absolute;
+            top: 50px;
+            left: 55px;
+            width: 60px;
+            height: 25px;
+            background: #4a5568;
+            border-radius: 15px;
+            transform: rotate(-45deg);
+        }
+        .character-legs {
+            position: absolute;
+            bottom: 0;
+            width: 25px;
+            height: 70px;
+            background: #2d3748;
+            border-radius: 8px;
+        }
+        .leg-left { left: 25px; }
+        .leg-right { right: 25px; }
+
+        /* 랜턴 */
+        .lantern {
+            position: absolute;
+            top: 45px;
+            left: 95px;
+            width: 30px;
+            height: 40px;
+            z-index: 18;
+            transform: rotate(-45deg);
+        }
+        .lantern-body {
+            width: 100%;
+            height: 100%;
+            background: #a0aec0;
+            border-radius: 4px;
+        }
+        .lantern-glass {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: calc(100% - 8px);
+            height: 20px;
+            background: #fefcbf;
+            border-radius: 2px;
+            box-shadow: 0 0 10px 3px #fde047;
+            animation: flicker 2s ease-in-out infinite;
+        }
+
+        /* 빛 효과 */
+        .light-beam {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(253, 224, 71, 0.2) 0%, rgba(253, 224, 71, 0) 60%);
+            z-index: 10;
+            animation: pulse-beam 4s ease-in-out infinite;
+        }
+
+        /* 애니메이션 */
+        @keyframes flicker {
+            0%, 100% { box-shadow: 0 0 10px 3px #fde047; }
+            50% { box-shadow: 0 0 15px 5px #fde047; }
+        }
+        @keyframes pulse-beam {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="icon-container">
+        <div class="light-beam"></div>
+        
+        <div class="character">
+            <div class="character-torso"></div>
+            <div class="leg-left character-legs"></div>
+            <div class="leg-right character-legs"></div>
+            <div class="character-head"></div>
+            <div class="character-helmet"></div>
+            <div class="character-arm"></div>
+            <div class="lantern">
+                <div class="lantern-body"></div>
+                <div class="lantern-glass"></div>
+            </div>
+        </div>
+
+        <div class="cave-frame">
+            <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="cave-shadow" cx="0.5" cy="0.5" r="0.5">
+                        <stop offset="0.7" stop-color="#1a202c" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#000" stop-opacity="1"/>
+                    </radialGradient>
+                </defs>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H512V512H0V0ZM256 50C164.513 50 90 124.513 90 216C90 286.43 135.289 345.51 200 372.5C180.247 412.081 169.833 442.84 171.5 462H340.5C342.167 442.84 331.753 412.081 312 372.5C376.711 345.51 422 286.43 422 216C422 124.513 347.487 50 256 50Z" fill="url(#cave-shadow)"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
